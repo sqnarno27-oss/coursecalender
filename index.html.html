@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تقويم الدورات – الفصل الأول 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f4f6f8;--card:#fff;--ink:#14213d;--mute:#6b7685;--line:#dfe4ea;--acc:#0f766e;--accbg:#d9f0ed;--off:#eef0f3;
+--s1:#16a34a;--s2:#d97706;--s3:#6b7280;--s4:#dc2626;--s5:#2563eb}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10151c;--card:#19212b;--ink:#e8edf3;--mute:#93a0b0;--line:#2a3441;--acc:#2dd4bf;--accbg:#12403c;--off:#141b23}}
+:root[data-theme="dark"]{--bg:#10151c;--card:#19212b;--ink:#e8edf3;--mute:#93a0b0;--line:#2a3441;--acc:#2dd4bf;--accbg:#12403c;--off:#141b23}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Tajawal,Tahoma,"Segoe UI",Arial,sans-serif;font-size:15px}
+.wrap{max-width:1100px;margin:0 auto;padding:16px}
+h1{font-size:24px;font-weight:800;margin:0 0 2px}
+.sub{color:var(--mute);margin:0 0 14px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 14px;min-width:120px}
+.stat b{display:block;font-size:22px;font-weight:800}
+.stat span{color:var(--mute);font-size:13px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.tabs{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--card)}
+.tabs button{border:0;background:none;color:var(--ink);padding:8px 16px;font:inherit;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--acc);color:#fff;font-weight:700}
+button,input,select{font:inherit;color:var(--ink)}
+.btn{background:var(--acc);color:#fff;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;font-weight:700}
+.btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line);font-weight:500}
+.btn.del{background:var(--s4)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.sp{flex:1}
+.nav{display:flex;align-items:center;gap:8px}
+.nav h2{margin:0;font-size:20px;min-width:110px;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.dow{background:var(--ink);color:var(--card);text-align:center;padding:6px 0;font-weight:700;font-size:13px}
+.dow.we{opacity:.55}
+.day{background:var(--card);min-height:104px;padding:4px;cursor:pointer;overflow:hidden}
+.day.off{background:var(--off);cursor:default}
+.day.we{background:var(--off)}
+.day.today{box-shadow:inset 0 0 0 2px var(--acc)}
+.dn{font-size:12px;color:var(--mute);margin-bottom:2px;display:flex;justify-content:space-between}
+.dn i{font-style:normal;color:var(--acc);font-weight:700}
+.chip{display:block;width:100%;text-align:right;border:0;border-inline-start:4px solid var(--c);background:color-mix(in srgb,var(--c) 14%,var(--card));color:var(--ink);border-radius:4px;padding:2px 6px;margin-bottom:2px;font-size:12px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.more{font-size:11px;color:var(--mute);padding:0 4px}
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0;font-size:13px;color:var(--mute)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--c);margin-inline-end:5px}
+.tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:760px}
+th,td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th{background:var(--off);font-size:13px;color:var(--mute)}
+tbody tr{cursor:pointer}tbody tr:hover{background:var(--accbg)}
+.pill{display:inline-block;padding:1px 10px;border-radius:20px;background:color-mix(in srgb,var(--c) 16%,var(--card));border:1px solid var(--c);font-size:12px}
+.week{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
+.wk{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px}
+.wk small{color:var(--mute)}.wk b{display:block;font-size:24px}
+.wk div{height:6px;border-radius:3px;background:var(--acc);margin-top:6px}
+.search{padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);min-width:180px}
+.mask{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:16px;z-index:9}
+.mask.on{display:flex}
+.modal{background:var(--card);border-radius:12px;padding:18px;width:100%;max-width:480px;max-height:100%;overflow:auto}
+.modal h3{margin:0 0 12px}
+.f{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.f label{display:flex;flex-direction:column;font-size:13px;color:var(--mute);gap:3px}
+.f .w{grid-column:1/-1}
+.f input,.f select{padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--bg)}
+.acts{display:flex;gap:8px;margin-top:14px}
+.err{color:var(--s4);font-size:13px;min-height:18px;margin-top:6px}
+.empty{padding:28px;text-align:center;color:var(--mute)}
+@media(max-width:640px){.day{min-height:70px}.chip{font-size:10px;padding:1px 3px}.f{grid-template-columns:1fr}}
+@media print{.bar,.acts,.legend{display:none}body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>تقويم الدورات – الفصل الأول 2027</h1>
+<p class="sub">من 3 يناير إلى 8 أبريل 2027 · اضغط على أي يوم لإضافة دورة، وعلى الدورة لتعديلها.</p>
+<div class="stats">
+<div class="stat"><b id="sTotal">0</b><span>دورة في الجدول</span></div>
+<div class="stat"><b id="sMonth">0</b><span>دورات نشطة هذا الشهر</span></div>
+<div class="stat"><b id="sConf">0</b><span>دورات مؤكدة</span></div>
+</div>
+<div class="bar">
+<div class="tabs" role="group" aria-label="طريقة العرض">
+<button data-v="month" aria-pressed="true">الشهر</button>
+<button data-v="list" aria-pressed="false">القائمة</button>
+<button data-v="week" aria-pressed="false">الأسابيع</button>
+</div>
+<div class="nav" id="nav">
+<button class="btn ghost" id="next" aria-label="الشهر التالي">›</button>
+<h2 id="mt"></h2>
+<button class="btn ghost" id="prev" aria-label="الشهر السابق">‹</button>
+</div>
+<span class="sp"></span>
+<select class="search" id="fe"><option value="">كل الجهات</option></select>
+<input class="search" id="q" type="search" placeholder="ابحث باسم الدورة أو الجهة" style="display:none">
+<button class="btn" id="add">إضافة دورة</button>
+</div>
+<div id="view"></div>
+<div class="legend" id="legend"></div>
+</div>
+
+<div class="mask" id="mask"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="mh">
+<h3 id="mh">إضافة دورة</h3>
+<div class="f">
+<label class="w">اسم الدورة<input id="fName"></label><label class="w">الجهة<input id="fEnt" list="ents"></label><datalist id="ents"></datalist>
+<label>المكان<input id="fVen"></label>
+<label>تاريخ البداية<input id="fS" type="date"></label>
+<label>تاريخ النهاية<input id="fE" type="date"></label>
+<label>الوقت<input id="fT" placeholder="9:00 – 1:00"></label>
+<label>عدد المشاركين<input id="fN"></label>
+<label class="w">الحالة<select id="fSt"></select></label>
+</div>
+<div class="err" id="err"></div>
+<div class="acts">
+<button class="btn" id="save">حفظ</button>
+<button class="btn ghost" id="cancel">إلغاء</button>
+<span class="sp"></span>
+<button class="btn del" id="del">حذف</button>
+</div>
+</div></div>
+
+<script>
+var ST={"مؤكدة":"var(--s1)","قيد التأكيد":"var(--s2)","مؤجلة":"var(--s3)","ملغاة":"var(--s4)","منتهية":"var(--s5)"};
+var MON=["يناير","فبراير","مارس","أبريل"],DOW=["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+var KEY="courses-2027-t1-v2",TERM_S="2027-01-03",TERM_E="2027-04-08";
+var DEF=[{"id": "d0", "name": "NJSC-69 دورة الأركان البحرية", "ent": "مدرسة الأركان البحرية", "start": "2027-01-03", "end": "2027-03-18", "n": "TBC", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d1", "name": "JOAC-54 دورة الإدارة للضباط", "ent": "مدرسة الأركان البحرية", "start": "2027-03-21", "end": "2027-04-08", "n": "TBC", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d2", "name": "PWOC-43 دورة ضباط مبادئ الحرب", "ent": "مدرسة تدريب العمليات", "start": "2026-07-05", "end": "2027-05-04", "n": "8", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d3", "name": "PWOC-44 دورة ضباط مبادئ الحرب", "ent": "مدرسة تدريب العمليات", "start": "2027-01-03", "end": "2027-11-11", "n": "8", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d4", "name": "GO DESIG 01/27 التأهيلية لضباط المدفعية", "ent": "مدرسة تدريب العمليات", "start": "2027-03-01", "end": "2027-04-01", "n": "TBC", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d5", "name": "XO DESIG 01/27 التأهيلية للضباط التنفيذيين", "ent": "مدرسة تدريب العمليات", "start": "2027-04-18", "end": "2027-04-29", "n": "8", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d6", "name": "DMC-62 (A) دورة الضباط حملة الدبلوم", "ent": "مدرسة تدريب الملاحة", "start": "2026-01-04", "end": "2027-11-03", "n": "15", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d7", "name": "DMC-62 (B) دورة الضباط حملة الدبلوم", "ent": "مدرسة تدريب الملاحة", "start": "2026-01-11", "end": "2027-11-03", "n": "11", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d8", "name": "GSC-01 دورة ضباط الخدمة العامة", "ent": "مدرسة تدريب المرشحين", "start": "2025-12-14", "end": "2027-11-03", "n": "10", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d9", "name": "DMC-64 دورة الضباط حملة الدبلوم", "ent": "مدرسة تدريب المرشحين", "start": "2026-01-11", "end": "2027-11-03", "n": "27", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d10", "name": "BCL-59 دورة الكتبة التأسيسية", "ent": "مدرسة تدريب الإدارة واللوازم", "start": "2027-01-03", "end": "2027-03-25", "n": "15", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d11", "name": "BLA-59 دورة اللوازم التأسيسية", "ent": "مدرسة تدريب الإدارة واللوازم", "start": "2027-01-03", "end": "2027-03-11", "n": "30", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d12", "name": "RDMC-250 دورة إدارة الأقسام للرقباء", "ent": "مدرسة تدريب الإدارة واللوازم", "start": "2027-01-10", "end": "2027-01-21", "n": "16", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d13", "name": "SQC-09 التأهيلية لضباط الصف", "ent": "مدرسة تدريب الإدارة واللوازم", "start": "2027-03-14", "end": "2027-04-01", "n": "15", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d14", "name": "SQC-10 التأهيلية لضباط الصف", "ent": "مدرسة تدريب الإدارة واللوازم", "start": "2027-06-13", "end": "2027-07-01", "n": "15", "time": "", "venue": "", "note": "الفصل الثاني 2027", "status": "مؤكدة"}, {"id": "d15", "name": "BSMG-21 دورة بحار مدفعي تأسيسية", "ent": "مدرسة التدريب التعبوي", "start": "2027-01-03", "end": "2027-04-08", "n": "15", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d16", "name": "ASMG-24 دورة بحار مدفعي متقدمة", "ent": "مدرسة التدريب التعبوي", "start": "2027-01-03", "end": "2027-04-08", "n": "15", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d17", "name": "ACM-69 دورة الاتصالات المتقدمة", "ent": "مدرسة التدريب التعبوي", "start": "2027-01-03", "end": "2027-07-29", "n": "20", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d18", "name": "GMDSS-21 النظام العالمي للاستغاثة والسلامة البحرية", "ent": "أكاديمية السلطان قابوس البحرية", "start": "2027-03-21", "end": "2027-04-01", "n": "12", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d19", "name": "BST-11 التدريب الأساسي للسلامة", "ent": "أكاديمية السلطان قابوس البحرية", "start": "2027-01-24", "end": "2027-01-28", "n": "12", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d20", "name": "ASD-36 دورة المباشرين المتقدمة", "ent": "مدرسة تدريب الإعاشة", "start": "2027-01-03", "end": "2027-02-25", "n": "12", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d21", "name": "ACK-52 دورة الطهاة المتقدمة", "ent": "مدرسة تدريب الإعاشة", "start": "2027-01-03", "end": "2027-02-25", "n": "12", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d22", "name": "RSD-30 دورة رقيب مباشر", "ent": "مدرسة تدريب الإعاشة", "start": "2027-02-21", "end": "2027-04-08", "n": "12", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d23", "name": "RCK-50 دورة رقيب طاهي", "ent": "مدرسة تدريب الإعاشة", "start": "2027-02-21", "end": "2027-04-08", "n": "12", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d24", "name": "BSC-40 دورة الأمن التأسيسية", "ent": "مدرسة الاستخبارات والأمن والانضباط البحري", "start": "2027-01-10", "end": "2027-03-18", "n": "22", "time": "", "venue": "", "note": "السنة في المصدر 2026، واعتُمدت 2027", "status": "مؤكدة"}, {"id": "d25", "name": "RSC-45 دورة رقيب أمن", "ent": "مدرسة الاستخبارات والأمن والانضباط البحري", "start": "2027-01-10", "end": "2027-02-18", "n": "22", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d26", "name": "RSC-46 دورة رقيب أمن", "ent": "مدرسة الاستخبارات والأمن والانضباط البحري", "start": "2027-02-21", "end": "2027-04-01", "n": "22", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d27", "name": "MEL(A)-05 دورة الكهرباء المتقدمة", "ent": "مدرسة التدريب الهندسي", "start": "2026-09-06", "end": "2027-04-01", "n": "15", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d28", "name": "MEM(A)-04 دورة الميكانيك المتقدمة", "ent": "مدرسة التدريب الهندسي", "start": "2026-09-06", "end": "2027-04-01", "n": "14", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d29", "name": "MEO AC-04 التطبيقية لضباط الهندسة البحرية", "ent": "مدرسة التدريب الهندسي", "start": "2026-05-03", "end": "2027-03-31", "n": "8", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d30", "name": "WEO AC-02 التطبيقية لضباط هندسة الأسلحة", "ent": "مدرسة التدريب الهندسي", "start": "2026-05-03", "end": "2027-03-31", "n": "8", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d31", "name": "دورة مشرف غوص مخاليط الغازات 1/2027", "ent": "مدرسة الغوص ومكافحة الألغام البحرية", "start": "2027-01-03", "end": "2027-02-11", "n": "4", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d32", "name": "دورة الغوص باستخدام مخاليط الغازات 2/2027", "ent": "مدرسة الغوص ومكافحة الألغام البحرية", "start": "2027-01-10", "end": "2027-02-11", "n": "8", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d33", "name": "دورة التعامل مع المتفجرات والألغام البحرية التأسيسية 3/2027", "ent": "مدرسة الغوص ومكافحة الألغام البحرية", "start": "2027-02-28", "end": "2027-04-08", "n": "6", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d34", "name": "دورة نائب عريف بحار (غوص) 4/2027", "ent": "مدرسة الغوص ومكافحة الألغام البحرية", "start": "2027-02-21", "end": "2027-04-15", "n": "10", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d35", "name": "دورة الموسيقى التأسيسية BAND FOUNDATION", "ent": "مدرسة التدريب الموسيقي", "start": "2027-01-03", "end": "2027-04-08", "n": "23", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d36", "name": "دورة المرحلة السابعة (عملي)", "ent": "مدرسة التدريب الموسيقي", "start": "2027-01-03", "end": "2027-04-08", "n": "15", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d37", "name": "DHC-11 دورة دبلوم الهيدروغرافيا", "ent": "مدرسة تدريب الهيدروغرافيا", "start": "2025-05-04", "end": "2028-01-31", "n": "10", "time": "", "venue": "", "note": "تنتهي يناير 2028", "status": "مؤكدة"}, {"id": "d38", "name": "RLC-222 دورة القيادة والإدارة للرقباء", "ent": "مدرسة تدريب القيادة", "start": "2027-01-10", "end": "2027-02-18", "n": "60", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d39", "name": "FOUNDATION YEAR-03 دورة السنة التأسيسية", "ent": "مدرسة البرامج التأسيسية والإنماء المهني", "start": "2027-01-03", "end": "2027-12-31", "n": "TBC", "time": "", "venue": "", "note": "تنتهي ديسمبر 2027", "status": "مؤكدة"}, {"id": "d40", "name": "ITC-01/27 دورة المهارات التدريبية", "ent": "مدرسة البرامج التأسيسية والإنماء المهني", "start": "2027-01-10", "end": "2027-01-28", "n": "15", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d41", "name": "ITC-02/27 دورة المهارات التدريبية", "ent": "مدرسة البرامج التأسيسية والإنماء المهني", "start": "2027-02-14", "end": "2027-03-04", "n": "15", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d42", "name": "TMC(RNO)-01/27 دورة إدارة التدريب", "ent": "مدرسة البرامج التأسيسية والإنماء المهني", "start": "2027-03-14", "end": "2027-03-18", "n": "15", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d43", "name": "BTDC-37 دورة تصميم التدريب", "ent": "قسم تصميم التدريب", "start": "2027-01-24", "end": "2027-02-04", "n": "15", "time": "", "venue": "", "note": "السنة في المصدر 2026، واعتُمدت 2027", "status": "مؤكدة"}, {"id": "d44", "name": "BFFDC-1/27 دورة الحريق التأسيسية", "ent": "مدرسة مكافحة الحريق والحرب الكيميائية", "start": "2027-01-17", "end": "2027-01-21", "n": "25", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d45", "name": "NBCD-32 دورة الوقاية من أسلحة الدمار الشامل", "ent": "مدرسة مكافحة الحريق والحرب الكيميائية", "start": "2027-03-28", "end": "2027-04-08", "n": "25", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d46", "name": "BLFFDC-01/27 دورة مكافحة حريق", "ent": "مدرسة مكافحة الحريق والحرب الكيميائية", "start": "2027-03-14", "end": "2027-03-18", "n": "25", "time": "", "venue": "", "note": "العنوان غير واضح في الصورة", "status": "مؤكدة"}, {"id": "d47", "name": "دورة مشغلي صواريخ SAMO/SSMO", "ent": "مركز المشبهات والمنظومة القتالية", "start": "2027-03-07", "end": "2027-03-25", "n": "7", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d48", "name": "S&BC-01/27 دورة البحث والتفتيش", "ent": "مدرسة العمليات (البحث والتفتيش)", "start": "2027-01-10", "end": "2027-01-14", "n": "10", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d49", "name": "S&BC-02/27 دورة البحث والتفتيش", "ent": "مدرسة العمليات (البحث والتفتيش)", "start": "2027-01-24", "end": "2027-01-28", "n": "10", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d50", "name": "S&BC-03/27 دورة البحث والتفتيش", "ent": "مدرسة العمليات (البحث والتفتيش)", "start": "2027-02-07", "end": "2027-02-11", "n": "10", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d51", "name": "S&BC-04/27 دورة البحث والتفتيش", "ent": "مدرسة العمليات (البحث والتفتيش)", "start": "2027-02-21", "end": "2027-02-25", "n": "10", "time": "", "venue": "", "note": "", "status": "مؤكدة"}, {"id": "d52", "name": "S&BC-05/27 دورة البحث والتفتيش", "ent": "مدرسة العمليات (البحث والتفتيش)", "start": "2027-03-28", "end": "2027-04-01", "n": "10", "time": "", "venue": "", "note": "", "status": "مؤكدة"}];var data=DEF.slice(),view="month",mi=0,editId=null,pendingDate=null;
+try{var r=localStorage.getItem(KEY);if(r)data=JSON.parse(r)||[]}catch(e){}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){}}
+function $(i){return document.getElementById(i)}
+function iso(y,m,d){return y+"-"+String(m).padStart(2,"0")+"-"+String(d).padStart(2,"0")}
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function fmt(s){var p=s.split("-");return p[2]+"/"+p[1]+"/"+p[0]}
+function vis(){var e=$("fe").value;return e?data.filter(function(c){return c.ent===e}):data}
+function ents(){var s={};data.forEach(function(c){if(c.ent)s[c.ent]=1});return Object.keys(s)}
+function fillEnts(){var cur=$("fe").value,o=ents();$("fe").innerHTML='<option value="">كل الجهات</option>'+o.map(function(x){return"<option>"+esc(x)+"</option>"}).join("");$("fe").value=o.indexOf(cur)>-1?cur:"";$("ents").innerHTML=o.map(function(x){return"<option value=\""+esc(x)+"\">"}).join("")}
+function active(d){return vis().filter(function(c){return c.start<=d&&d<=c.end})}
+
+$("fSt").innerHTML=Object.keys(ST).map(function(k){return"<option>"+k+"</option>"}).join("");
+$("legend").innerHTML=Object.keys(ST).map(function(k){return'<span style="--c:'+ST[k]+'">'+k+"</span>"}).join("");
+
+function render(){
+  fillEnts();
+  $("sTotal").textContent=data.length;
+  $("sConf").textContent=data.filter(function(c){return c.status==="مؤكدة"}).length;
+  var m=mi+1,last=new Date(2027,m,0).getDate();
+  $("sMonth").textContent=vis().filter(function(c){return c.start<=iso(2027,m,last)&&c.end>=iso(2027,m,1)}).length;
+  $("nav").style.display=view==="month"?"flex":"none";
+  $("q").style.display=view==="list"?"":"none";$("fe").style.display=view==="week"?"none":"";
+  document.querySelectorAll(".tabs button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.v===view)});
+  $("mt").textContent=MON[mi]+" 2027";
+  $("prev").disabled=mi===0;$("next").disabled=mi===3;
+  if(view==="month")renderMonth();else if(view==="list")renderList();else renderWeeks();
+}
+function renderMonth(){
+  var m=mi+1,last=new Date(2027,m,0).getDate(),first=new Date(2027,mi,1).getDay(),h="";
+  DOW.forEach(function(d,i){h+='<div class="dow'+(i>4?" we":"")+'">'+d+"</div>"});
+  for(var i=0;i<first;i++)h+='<div class="day off"></div>';
+  for(var d=1;d<=last;d++){
+    var k=iso(2027,m,d),dw=(first+d-1)%7,inT=k>=TERM_S&&k<=TERM_E,a=inT?active(k):[];
+    var cls="day"+(!inT?" off":dw>4?" we":"");
+    h+='<div class="'+cls+'" data-d="'+(inT?k:"")+'"><div class="dn"><span>'+d+"</span>"+(a.length?"<i>"+a.length+"</i>":"")+"</div>";
+    a.slice(0,3).forEach(function(c){h+='<button class="chip" style="--c:'+ST[c.status]+'" data-id="'+c.id+'" title="'+esc(c.name+" – "+c.ent)+'">'+esc(c.name)+"</button>"});
+    if(a.length>3)h+='<div class="more">+'+(a.length-3)+" أخرى</div>";
+    h+="</div>";
+  }
+  $("view").innerHTML='<div class="grid">'+h+"</div>";
+}
+function tag(c){var t=c.start>TERM_E?"خارج الفصل":(c.start<TERM_S||c.end>TERM_E?"تمتد خارج الفصل":"");return t?' <span class="more">('+t+")</span>":""}
+function renderList(){
+  var q=$("q").value.trim().toLowerCase();
+  var rows=vis().filter(function(c){return !q||(c.name+" "+c.ent).toLowerCase().indexOf(q)>-1}).sort(function(a,b){return a.start<b.start?-1:a.start>b.start?1:0});
+  if(!rows.length){$("view").innerHTML='<div class="tbl"><div class="empty">'+(data.length?"لا توجد نتائج مطابقة.":"لا توجد دورات بعد. اضغط «إضافة دورة» للبدء.")+"</div></div>";return}
+  var h="<table><thead><tr><th>م</th><th>الدورة</th><th>الجهة</th><th>البداية</th><th>النهاية</th><th>المشاركون</th><th>الحالة</th></tr></thead><tbody>";
+  rows.forEach(function(c,i){h+='<tr data-id="'+c.id+'"><td>'+(i+1)+"</td><td>"+esc(c.name)+tag(c)+"</td><td>"+esc(c.ent)+"</td><td>"+fmt(c.start)+"</td><td>"+fmt(c.end)+"</td><td>"+esc(c.n)+'</td><td><span class="pill" style="--c:'+ST[c.status]+'">'+c.status+"</span></td></tr>"});
+  $("view").innerHTML='<div class="tbl">'+h+"</tbody></table></div>";
+}
+function renderWeeks(){
+  var rows=[],mx=1;
+  for(var w=0;w<14;w++){
+    var s=new Date(2027,0,3+w*7),e=new Date(2027,0,7+w*7);
+    var ks=iso(s.getFullYear(),s.getMonth()+1,s.getDate()),ke=iso(e.getFullYear(),e.getMonth()+1,e.getDate());
+    var n=vis().filter(function(c){return c.start<=ke&&c.end>=ks}).length;mx=Math.max(mx,n);
+    rows.push({w:w+1,n:n,l:s.getDate()+"/"+(s.getMonth()+1)+" – "+e.getDate()+"/"+(e.getMonth()+1)});
+  }
+  $("view").innerHTML='<div class="week">'+rows.map(function(r){return'<div class="wk"><small>أسبوع '+r.w+"</small><b>"+r.n+"</b><small>"+r.l+'</small><div style="width:'+(r.n/mx*100)+'%"></div></div>'}).join("")+"</div>";
+}
+
+function openM(id,date){
+  editId=id||null;var c=id?data.filter(function(x){return x.id===id})[0]:null;
+  $("mh").textContent=c?"تعديل الدورة":"إضافة دورة";
+  $("fName").value=c?c.name:"";$("fVen").value=c?c.venue:"";$("fEnt").value=c?c.ent:($("fe").value||"");
+  $("fS").value=c?c.start:(date||"");$("fE").value=c?c.end:(date||"");
+  $("fT").value=c?c.time:"";$("fN").value=c?c.n:"";$("fSt").value=c?c.status:"مؤكدة";
+  $("del").style.display=c?"":"none";$("err").textContent="";
+  $("mask").classList.add("on");$("fName").focus();
+}
+function closeM(){$("mask").classList.remove("on")}
+$("save").onclick=function(){
+  var o={name:$("fName").value.trim(),ent:$("fEnt").value.trim(),venue:$("fVen").value.trim(),start:$("fS").value,end:$("fE").value,time:$("fT").value.trim(),n:$("fN").value,status:$("fSt").value};
+  if(!o.name){$("err").textContent="اكتب اسم الدورة.";return}
+  if(!o.start||!o.end){$("err").textContent="حدّد تاريخ البداية والنهاية.";return}
+  if(o.end<o.start){$("err").textContent="تاريخ النهاية يجب أن يكون بعد البداية.";return}
+  if(editId){data=data.map(function(c){return c.id===editId?Object.assign({},c,o):c})}
+  else{o.id="c"+Date.now()+Math.floor(Math.random()*999);data.push(o)}
+  persist();closeM();render();
+};
+$("del").onclick=function(){if(editId&&confirm("حذف هذه الدورة؟")){data=data.filter(function(c){return c.id!==editId});persist();closeM();render()}};
+$("cancel").onclick=closeM;
+$("mask").onclick=function(e){if(e.target===$("mask"))closeM()};
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeM()});
+$("add").onclick=function(){openM()};
+$("prev").onclick=function(){if(mi>0){mi--;render()}};
+$("next").onclick=function(){if(mi<3){mi++;render()}};
+$("q").oninput=renderList;
+document.querySelector(".tabs").onclick=function(e){var v=e.target.dataset&&e.target.dataset.v;if(v){view=v;render()}};
+$("view").onclick=function(e){
+  var ch=e.target.closest("[data-id]");if(ch){openM(ch.dataset.id);return}
+  var dy=e.target.closest(".day");if(dy&&dy.dataset.d)openM(null,dy.dataset.d);
+};
+render();
+</script>
+</body>
+</html>
